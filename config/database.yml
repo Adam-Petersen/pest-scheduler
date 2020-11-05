@@ -20,6 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  user: adam
+  password: <%= ENV['PEST_SCHEDULER_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
@@ -81,5 +83,3 @@ test:
 production:
   <<: *default
   database: pest_scheduler_production
-  username: pest_scheduler
-  password: <%= ENV['PEST_SCHEDULER_DATABASE_PASSWORD'] %>
