@@ -1,0 +1,91 @@
+// Place all the styles related to the Schedule controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+$block-size: 50px;
+$border-size: 1px;
+$border-color: #dee2e6;
+
+h3 {
+  text-align: center;
+
+}
+
+table {
+  box-sizing: border-box;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  table-layout: fixed ;
+  width: 65%;
+  height: 500px;
+  color: #373737;
+  margin-left: auto;
+  margin-right: auto;
+
+  tr {
+    height: $block-size;
+    overflow: hidden;
+
+    th {
+      border: $border-size solid $border-color;
+      height: $block-size;
+    }
+    
+    td {
+      box-sizing: border-box;
+      border: $border-size solid $border-color;
+      height: $block-size;
+      padding: 0px;
+  
+      .td-wrapper {
+        position: relative;
+        height: 100%;
+  
+        .block {
+          box-sizing: content-box;
+          position: absolute;
+          width: 100%;
+          background-color: lightblue;
+          overflow: hidden;
+
+          div {
+            display: block;
+            font-size: 60%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: black;
+            font-family: "Arial";
+          }
+        }
+
+        .break {
+          box-sizing: content-box;
+          position: absolute;
+          top: 0%;
+          width: 100%;
+          overflow: hidden;
+          cursor: pointer;
+          z-index: 99;
+        }
+
+        .break:hover {
+          background-color: gray;
+          opacity: 50%;
+        }
+
+        .conflict {
+          background-color: red;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+
+        }
+
+        .conflict:hover {
+          z-index: 100;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<h3>Pest Control Work Orders for 10/1/19</h3>
+
+<table>
+  <tr>
+    <th>Time</th>
+    <% @technicians.each do |tech| %>
+      <th><%= tech.name %></th>
+    <% end %>
+  </tr>
+  <% (5..18).each do |t| %>
+    <tr>
+      <th><%= t.to_s.rjust(2,"0") + ":00" %></th>
+      <% @technicians.each do |tech| %>
+        <td>
+          <div class="td-wrapper">
+
+          <% if !@blocks[t].nil? && !@blocks[t][tech.id.to_s.to_sym].nil? %>
+            <% @blocks[t][tech.id.to_s.to_sym].each do |order_data| %>
+              <div class = "block <%= "conflict" if order_data[:conflict]%>" style="height: <%=order_data[:height] %>; top: <%= order_data[:top] %>;">
+                <div>
+                <%= order_data[:start_time] %>, <%= order_data[:work_order].duration %> mins,  $<%= order_data[:work_order].price %> <br>
+                <%= order_data[:work_order].location.name %>, <%= order_data[:work_order].location.city %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if !@breaks[t].nil? && !@breaks[t][tech.id.to_s.to_sym].nil? %>
+            <% @breaks[t][tech.id.to_s.to_sym].each do |break_data| %>
+              <div class = "break" onclick="alert('<%= "There are #{break_data[:duration]} minutes available between the #{break_data[:first_name]} and #{break_data[:last_name]} orders."  %>')" style="height: <%=break_data[:height] %>; top: <%= break_data[:top] %>;"></div>
+            <% end %>
+          <% end %>
+          </div>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
