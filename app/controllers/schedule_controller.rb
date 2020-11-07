@@ -33,9 +33,6 @@ class ScheduleController < ApplicationController
           break_start = prev_order.time + prev_order.duration.minutes
           break_duration = ((work_order.time - break_start) / 60.0).to_i
           if break_duration > 0
-            p break_start
-            p work_order.time
-            p break_duration
             break_data = {}
             break_data[:height] = "#{(100.0 * break_duration / 60.0).to_i.to_s}%"
             break_data[:top] = "#{(100.0 * break_start.min / 60.0).to_i.to_s}%"
@@ -50,12 +47,5 @@ class ScheduleController < ApplicationController
         end
       end
     end
-
-
-
-      
-    # p @blocks
-    p @breaks
-
   end
 end

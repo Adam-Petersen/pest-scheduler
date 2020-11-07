@@ -36,4 +36,25 @@ namespace :db do
       end
     end
   end
+
+  namespace :delete do
+    desc "Deletes all records for given model"
+    task :delete_records, [:model_name] => :environment do |t, args|
+      supported_models = ["Location", "Technician", "WorkOrder"]
+      unless supported_models.include? args[:model_name]
+        raise "#{args[:model_name]} model not yet supported for automated deletion."
+      end
+
+      case args[:model_name]
+      when "Location"
+        Location.destroy_all
+      when "Technician"
+        Technician.destroy_all
+      when "WorkOrder"
+        WorkOrder.destroy_all
+      else
+        puts "Error: #{args[:model_name]} not yet supported for automated deletion."
+      end
+    end
+  end
 end

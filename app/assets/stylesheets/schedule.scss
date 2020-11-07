@@ -1,31 +1,22 @@
-// Place all the styles related to the Schedule controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
 $block-size: 50px;
 $border-size: 1px;
 $border-color: #dee2e6;
 
 h3 {
   text-align: center;
-
 }
 
 table {
   box-sizing: border-box;
   border-spacing: 0px;
   border-collapse: collapse;
-  table-layout: fixed ;
+  table-layout: fixed;
   width: 65%;
-  height: 500px;
   color: #373737;
   margin-left: auto;
   margin-right: auto;
 
   tr {
-    height: $block-size;
-    overflow: hidden;
-
     th {
       border: $border-size solid $border-color;
       height: $block-size;
@@ -46,11 +37,13 @@ table {
           position: absolute;
           width: 100%;
           background-color: lightblue;
+          border-bottom: 1px solid lightblue;
+          border-radius: 1px;
           overflow: hidden;
 
           div {
             display: block;
-            font-size: 60%;
+            font-size: 70%;
             position: relative;
             top: 50%;
             transform: translateY(-50%);
@@ -72,11 +65,12 @@ table {
 
         .break:hover {
           background-color: gray;
+          border-bottom: 2px solid gray;
           opacity: 50%;
         }
 
         .conflict {
-          background-color: red;
+          background-color: #f22e2e;
           border-top: 1px solid black;
           border-bottom: 1px solid black;
 
