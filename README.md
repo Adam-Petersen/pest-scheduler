@@ -1,8 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 ## General
 This Ruby on Rails app was created as part of the interview process for Terrier Technologies and fulfills the requirements as described in the Rails Scheduling Assignment document.
 
